@@ -1,0 +1,83 @@
+CREATE TABLE ORD (
+    ordNo INT NOT NULL AUTO_INCREMENT,
+    memNo INT NOT NULL,
+    ordTime DATETIME NOT NULL,
+    ordShip VARCHAR(255) NOT NULL,
+    ordShippingAds VARCHAR(255) NOT NULL,
+    ordPrice INT NOT NULL,
+    ordStatus TINYINT NOT NULL,
+    ordShippingTime DATETIME,
+    ordDeliveryTime DATETIME,
+    PRIMARY KEY (ordNo),
+    FOREIGN KEY (memNo) REFERENCES MEMBER(memNo)
+);
+CREATE TABLE ORD(
+    ordNo   INT PRIMARY KEY AUTO_INCREMENT,
+    memNo   INT   NOT NULL,
+    ordTime   DATETIME NOT NULL ,
+    ordShip   VARCHAR(255) NOT NULL ,
+    ordShippingAds   VARCHAR(255) NOT NULL ,
+    ordPrice   INT NOT NULL,
+    ordStatus   TINYINT ,
+    OrdShippingTime   DATETIME ,
+    OrdDeliveryTime   DATETIME
+)				
+CREATE TABLE ORDERDETAIL (
+    ordNo INT NOT NULL,
+    proNo INT NOT NULL,
+    dtlQty INT NOT NULL,
+    dtlPrice INT NOT NULL,
+    PRIMARY KEY (ordNo, proNo),
+    FOREIGN KEY (ordNo) REFERENCES ORD(ordNo),
+    FOREIGN KEY (proNo) REFERENCES PRODUCT(proNo)
+)				
+				
+CREATE TABLE rtnNo (
+    rtnNo INT NOT NULL,
+    empNo INT NOT NULL,
+    orderNo INT NOT NULL,
+    rtnDate DATETIME NOT NULL,
+    rtnWhy VARCHAR(255) NOT NULL,
+    refundAmount INT NOT NULL,
+    rtnStatus TINYINT NOT NULL DEFAULT 0,
+    PRIMARY KEY (rtnNo),
+    FOREIGN KEY (empNo) REFERENCES EMPLOYEE(empNo),
+    FOREIGN KEY (orderNo) REFERENCES ORDER(orderNo)
+)				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+								
+				
+				
+				
+				
+				
+				
+				
+						
+				
+				
+				
+				
+				
+				
+				
+				
+			
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
